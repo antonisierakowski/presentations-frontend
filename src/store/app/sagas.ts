@@ -1,6 +1,7 @@
 import { takeEvery } from 'redux-saga/effects';
+import { INIT_ACTION } from './constants';
 
-export function* notificationSaga() {
+export function* initSaga() {
   yield takeEvery(INIT_ACTION, onInitAction);
 }
 
