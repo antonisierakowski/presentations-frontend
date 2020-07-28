@@ -19,6 +19,7 @@ import {
 } from './selectors';
 import { DECREMENT_CURRENT_SLIDE, INCREMENT_CURRENT_SLIDE } from './constants';
 import { setIsUserPresentationOwner } from '../user/actions';
+import { push } from 'connected-react-router';
 
 export function* presentationSaga() {
   yield takeLatest(constants.UPLOAD_PRESENTATION, onUploadPresentation);
@@ -46,6 +47,7 @@ export function* onUploadPresentation({
     );
     yield put(uploadPresentationSuccess({ presentation }));
     yield put(setIsUserPresentationOwner({ isUserPresentationOwner: true }));
+    yield put(push(`/${presentation.id}`));
   } catch (e) {
     yield handleRequestError(e);
   }
@@ -69,6 +71,7 @@ export function* onGetPresentation({
       }),
     );
   } catch (e) {
+    yield put(push('/404'));
     yield handleRequestError(e);
   }
 }
@@ -116,6 +119,7 @@ export function* onRemovePresentation({
   try {
     yield call(requests.deletePresentation, presentationId);
     yield put(removePresentationSuccess());
+    yield put(push('/'));
   } catch (e) {
     yield handleRequestError(e);
   }

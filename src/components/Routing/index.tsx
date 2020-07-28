@@ -1,21 +1,23 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { IndexPage } from '../Pages/IndexPage';
 import { PresentationPage } from '../Pages/PresentationPage';
 import { NotFoundPage } from '../Pages/NotFoundPage';
+import { ConnectedRouter } from 'connected-react-router';
+import { history } from '../../store';
 
 export const Routing: React.FC = () => (
-  <Router>
+  <ConnectedRouter history={history}>
     <Switch>
       <Route exact path="/">
         <IndexPage />
       </Route>
+      <Route exact path="/404">
+        <NotFoundPage />
+      </Route>
       <Route path="/:presentationId">
         <PresentationPage />
       </Route>
-      <Route path="*">
-        <NotFoundPage />
-      </Route>
     </Switch>
-  </Router>
+  </ConnectedRouter>
 );
