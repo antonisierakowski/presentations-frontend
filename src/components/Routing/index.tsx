@@ -10,7 +10,7 @@ export const Routing: React.FC = () => (
       <Route exact path="/">
         <IndexPage />
       </Route>
-      <Route path="/presentation/:presentationId">
+      <Route path="/:presentationId">
         <PresentationPage />
       </Route>
       <Route path="*">

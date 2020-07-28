@@ -4,6 +4,7 @@ import { App } from './components/App';
 import { store } from './store';
 import { initAction } from './store/app/actions';
 import { Provider } from 'react-redux';
+import './index.css';
 
 store.dispatch(initAction());
 
