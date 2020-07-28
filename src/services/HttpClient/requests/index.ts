@@ -3,6 +3,7 @@ import { ApiResponse } from '../types';
 import {
   PresentationResponse,
   PresentationWithMetadataResponse,
+  SetPresentationCurrentSlideRequestBody,
 } from './types';
 
 export const postPresentation = async (
@@ -27,7 +28,7 @@ export const getPresentation = async (
 
 export const setPresentationCurrentSlide = async (
   presentationId: string,
-  body: any,
+  body: SetPresentationCurrentSlideRequestBody,
 ): Promise<ApiResponse<PresentationResponse>> => {
   const endpoint = '/presentation/%s'.replace('%s', presentationId);
   return await httpClient.put(endpoint, body);

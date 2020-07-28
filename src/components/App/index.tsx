@@ -10,6 +10,7 @@ function App() {
 
     fileReader.onload = function (fileLoadedEvent: any) {
       const file = fileLoadedEvent.target.result;
+      console.log(selectedFile.name);
       dispatch({
         type: 'UPLOAD_PRESENTATION',
         payload: {

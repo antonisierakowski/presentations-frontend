@@ -3,6 +3,7 @@ import { Action } from '../types';
 import {
   DECREMENT_CURRENT_SLIDE,
   GET_PRESENTATION,
+  GET_PRESENTATION_SUCCESS,
   INCREMENT_CURRENT_SLIDE,
   REMOVE_PRESENTATION,
   REMOVE_PRESENTATION_SUCCESS,
@@ -13,7 +14,7 @@ import {
 import { Presentation, PresentationMetadata } from './model';
 
 export interface UploadPresentationPayload {
-  file: Blob;
+  file: ArrayBuffer;
   fileName: string;
 }
 
@@ -47,7 +48,7 @@ export interface GetPresentationSuccessPayload {
 export const getPresentationSuccess = (
   payload: GetPresentationSuccessPayload,
 ): Action<GetPresentationSuccessPayload> =>
-  createAction(GET_PRESENTATION, payload);
+  createAction(GET_PRESENTATION_SUCCESS, payload);
 
 export const incrementCurrentSlide = () =>
   createAction(INCREMENT_CURRENT_SLIDE);
@@ -55,14 +56,18 @@ export const incrementCurrentSlide = () =>
 export const decrementCurrentSlide = () =>
   createAction(DECREMENT_CURRENT_SLIDE);
 
-export interface SetCurrentSlideSuccess {}
+export interface SetCurrentSlideSuccess {
+  presentation: Presentation;
+}
 
 export const setCurrentSlideSuccess = (
   payload: SetCurrentSlideSuccess,
 ): Action<SetCurrentSlideSuccess> =>
   createAction(SET_CURRENT_SLIDE_SUCCESS, payload);
 
-export interface RemovePresentationPayload {}
+export interface RemovePresentationPayload {
+  presentationId: string;
+}
 
 export const removePresentation = (
   payload: RemovePresentationPayload,
