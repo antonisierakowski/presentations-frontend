@@ -49,6 +49,7 @@ export function* onUploadPresentation({
     yield put(setIsUserPresentationOwner({ isUserPresentationOwner: true }));
     yield put(push(`/${presentation.id}`));
   } catch (e) {
+    console.log(e);
     yield handleRequestError(e);
   }
 }

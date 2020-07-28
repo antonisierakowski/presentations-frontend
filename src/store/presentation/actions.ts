@@ -30,7 +30,7 @@ export interface UploadPresentationSuccessPayload {
 export const uploadPresentationSuccess = (
   payload: UploadPresentationSuccessPayload,
 ): Action<UploadPresentationSuccessPayload> =>
-  createAction(UPLOAD_PRESENTATION_SUCCESS);
+  createAction(UPLOAD_PRESENTATION_SUCCESS, payload);
 
 export interface GetPresentationPayload {
   presentationId: string;

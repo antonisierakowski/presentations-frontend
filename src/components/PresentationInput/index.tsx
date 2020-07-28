@@ -1,21 +1,20 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { UPLOAD_PRESENTATION } from '../../store/presentation/constants';
 
 export const PresentationInput: React.FC = () => {
   const dispatch = useDispatch();
   const onUpload = (event: any) => {
     const selectedFile = event.target.files[0];
-
     const fileReader = new FileReader();
 
     fileReader.onload = function (fileLoadedEvent: any) {
       const file = fileLoadedEvent.target.result;
-      console.log(selectedFile.name);
       dispatch({
-        type: 'UPLOAD_PRESENTATION',
+        type: UPLOAD_PRESENTATION,
         payload: {
           file,
-          name: selectedFile.name,
+          fileName: selectedFile.name,
         },
       });
     };
