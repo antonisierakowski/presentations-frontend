@@ -3,7 +3,7 @@ import * as Axios from 'axios';
 import * as exceptions from './exceptions';
 import { ApiResponse, StatusCode } from './types';
 
-export class HttpClient {
+class HttpClient {
   private static instance: HttpClient;
   private axiosInstance: Axios.AxiosInstance;
 
