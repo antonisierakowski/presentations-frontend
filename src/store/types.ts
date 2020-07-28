@@ -1,7 +1,8 @@
 import { NotificationState } from './notifications/reducer';
+import { UserState } from './user/reducer';
 
 export interface RootState {
-  userState: any; // todo
+  userState: UserState;
   notificationsState: NotificationState;
   presentationState: any; // todo
 }
