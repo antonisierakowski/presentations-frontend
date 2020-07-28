@@ -29,6 +29,18 @@ export class HttpClient {
       case StatusCode.UNPROCESSABLE_ENTITY: {
         throw new exceptions.ApiValidationError();
       }
+      case StatusCode.RESOURCE_NOT_FOUND: {
+        throw new exceptions.ResourceNotFoundError();
+      }
+      case StatusCode.FORBIDDEN: {
+        throw new exceptions.ForbiddenError();
+      }
+      case StatusCode.UNSUPPORTED_MEDIA_TYPE: {
+        throw new exceptions.UnsupportedMediaTypeError();
+      }
+      case StatusCode.BAD_REQUEST: {
+        throw new exceptions.BadRequestError();
+      }
       case StatusCode.INTERNAL_ERROR:
       default: {
         throw new exceptions.ApiInternalError();
