@@ -1,26 +1,41 @@
 import httpClient from '../index';
+import { ApiResponse } from '../types';
+import {
+  PresentationResponse,
+  PresentationWithMetadataResponse,
+} from './types';
 
-export const postPresentation = async (file: ArrayBuffer) => {
-  // todo type?
+export const postPresentation = async (
+  file: Blob,
+  fileName: string,
+): Promise<ApiResponse<PresentationResponse>> => {
   const endpoint = '/presentation';
-  return await httpClient.post(endpoint, file); // todo body and type
+  const formData = new FormData();
+  formData.append('presentation', file, fileName);
+  const requestHeaders = {
+    'Content-Type': `multipart/form-data;`,
+  };
+  return await httpClient.post(endpoint, formData, { headers: requestHeaders });
 };
 
-export const getPresentation = async (presentationId: string) => {
+export const getPresentation = async (
+  presentationId: string,
+): Promise<ApiResponse<PresentationWithMetadataResponse>> => {
   const endpoint = '/presentation/%s/metadata'.replace('%s', presentationId);
-  return await httpClient.get(endpoint); // todo response type
+  return await httpClient.get(endpoint);
 };
 
 export const setPresentationCurrentSlide = async (
   presentationId: string,
   body: any,
-) => {
-  // todo type
+): Promise<ApiResponse<PresentationResponse>> => {
   const endpoint = '/presentation/%s'.replace('%s', presentationId);
-  return await httpClient.put(endpoint, body); // todo body and response type
+  return await httpClient.put(endpoint, body);
 };
 
-export const deletePresentation = async (presentationId: string) => {
+export const deletePresentation = async (
+  presentationId: string,
+): Promise<ApiResponse> => {
   const endpoint = '/presentation/%s'.replace('%s', presentationId);
-  return await httpClient.delete(endpoint); // todo response type
+  return await httpClient.delete(endpoint);
 };

@@ -4,3 +4,7 @@ export interface Presentation {
   numberOfSlides: number;
   fileUrl: string;
 }
+
+export interface PresentationMetadata {
+  isCurrentUserPresentationOwner: boolean;
+}

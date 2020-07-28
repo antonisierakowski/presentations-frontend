@@ -5,7 +5,7 @@ export class FeedClient {
   private wsConnection: WebSocket;
 
   constructor(channelId: string) {
-    const url = WS_DOMAIN + channelId;
+    const url = `${WS_DOMAIN}/${channelId}`;
     this.wsConnection = new WebSocket(url);
   }
 

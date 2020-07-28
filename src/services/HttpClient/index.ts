@@ -51,9 +51,10 @@ class HttpClient {
   async post<TBody = any, TResponse = ApiResponse>(
     url: string,
     body?: TBody,
+    customConfig?: Axios.AxiosRequestConfig,
   ): Promise<TResponse> {
     try {
-      const response = await this.axiosInstance.post(url, body);
+      const response = await this.axiosInstance.post(url, body, customConfig);
       return response.data;
     } catch (error) {
       if (!error.response) {
