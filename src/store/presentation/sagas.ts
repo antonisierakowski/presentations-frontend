@@ -81,9 +81,11 @@ export function* onIncrementOrDecrementCurrentSlide(action: Action) {
   switch (action.type) {
     case INCREMENT_CURRENT_SLIDE: {
       newSlide = currentSlide + 1;
+      break;
     }
     case DECREMENT_CURRENT_SLIDE: {
       newSlide = currentSlide - 1;
+      break;
     }
     default: {
       newSlide = currentSlide;
