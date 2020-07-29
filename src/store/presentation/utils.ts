@@ -1,7 +1,4 @@
-import {
-  PresentationDbRow,
-  PresentationFileExtension,
-} from '../../services/HttpClient/requests/types';
+import { PresentationDbRow } from '../../services/HttpClient/requests/types';
 import { Presentation } from './model';
 import { API_DOMAIN } from '../../constants';
 
@@ -13,7 +10,6 @@ export const mapPresentationDbRowToDomainEntity = (
     id: presentationRow.id,
     currentSlide: presentationRow.current_slide,
     numberOfSlides: presentationRow.number_of_slides,
-    fileType: presentationRow.file_type as PresentationFileExtension,
     fileUrl,
   };
 };
