@@ -6,6 +6,7 @@ import {
   getPresentationSuccess,
   removePresentationSuccess,
   setCurrentSlideSuccess,
+  uploadPresentationFailure,
   UploadPresentationPayload,
   uploadPresentationSuccess,
 } from './actions';
@@ -50,6 +51,7 @@ export function* onUploadPresentation({
     yield put(push(`/${presentation.id}`));
     yield put(getFeedConnection());
   } catch (e) {
+    yield put(uploadPresentationFailure());
     yield handleRequestError(e);
   }
 }

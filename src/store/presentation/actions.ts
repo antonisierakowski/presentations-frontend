@@ -9,6 +9,7 @@ import {
   REMOVE_PRESENTATION_SUCCESS,
   SET_CURRENT_SLIDE_SUCCESS,
   UPLOAD_PRESENTATION,
+  UPLOAD_PRESENTATION_FAILURE,
   UPLOAD_PRESENTATION_SUCCESS,
 } from './constants';
 import { Presentation, PresentationMetadata } from './model';
@@ -31,6 +32,9 @@ export const uploadPresentationSuccess = (
   payload: UploadPresentationSuccessPayload,
 ): Action<UploadPresentationSuccessPayload> =>
   createAction(UPLOAD_PRESENTATION_SUCCESS, payload);
+
+export const uploadPresentationFailure = (): Action =>
+  createAction(UPLOAD_PRESENTATION_FAILURE);
 
 export interface GetPresentationPayload {
   presentationId: string;
