@@ -20,6 +20,7 @@ import {
 import { DECREMENT_CURRENT_SLIDE, INCREMENT_CURRENT_SLIDE } from './constants';
 import { setIsUserPresentationOwner } from '../user/actions';
 import { push } from 'connected-react-router';
+import { getFeedConnection } from '../feed/actions';
 
 export function* presentationSaga() {
   yield takeLatest(constants.UPLOAD_PRESENTATION, onUploadPresentation);
@@ -48,6 +49,7 @@ export function* onUploadPresentation({
     yield put(uploadPresentationSuccess({ presentation }));
     yield put(setIsUserPresentationOwner({ isUserPresentationOwner: true }));
     yield put(push(`/${presentation.id}`));
+    yield put(getFeedConnection());
   } catch (e) {
     console.log(e);
     yield handleRequestError(e);
@@ -71,8 +73,9 @@ export function* onGetPresentation({
         isUserPresentationOwner: response.metadata.isOwner,
       }),
     );
+    yield put(getFeedConnection());
   } catch (e) {
-    yield put(push('/404'));
+    yield put(push('/'));
     yield handleRequestError(e);
   }
 }

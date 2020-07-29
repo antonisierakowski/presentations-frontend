@@ -1,7 +1,7 @@
 export const successfulSubmitMsg =
   'Your presentation has been succesfuly uploaded and started!';
 export const submitFailureMsg =
-  "There's something wrong with your data. Please check again and resend.";
+  "There's something wrong with your data. Please make sure your file is not corrupted.";
 export const internalErrorMsg =
   "There's something wrong on our side. Please wait a few minutes and try again.";
 export const noConnectionMsg =
