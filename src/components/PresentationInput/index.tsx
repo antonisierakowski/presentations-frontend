@@ -7,7 +7,7 @@ export const PresentationInput: React.FC = () => {
   const onUpload = (event: any) => {
     const selectedFile = event.target.files[0];
     const fileReader = new FileReader();
-
+    fileReader.readAsArrayBuffer(selectedFile);
     fileReader.onload = function (fileLoadedEvent: any) {
       const file = fileLoadedEvent.target.result;
       dispatch({
@@ -18,8 +18,6 @@ export const PresentationInput: React.FC = () => {
         },
       });
     };
-
-    fileReader.readAsBinaryString(selectedFile);
   };
 
   return <input onChange={onUpload} type={'file'} />;

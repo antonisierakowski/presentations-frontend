@@ -14,7 +14,7 @@ export const postPresentation = async (
   const formData = new FormData();
   formData.append('presentation', file, fileName);
   const requestHeaders = {
-    'Content-Type': `multipart/form-data;`,
+    'Content-Type': `multipart/form-data`,
   };
   return await httpClient.post(endpoint, formData, { headers: requestHeaders });
 };

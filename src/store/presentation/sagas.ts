@@ -51,7 +51,6 @@ export function* onUploadPresentation({
     yield put(push(`/${presentation.id}`));
     yield put(getFeedConnection());
   } catch (e) {
-    console.log(e);
     yield handleRequestError(e);
   }
 }
