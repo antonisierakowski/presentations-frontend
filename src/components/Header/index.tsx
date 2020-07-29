@@ -12,7 +12,7 @@ export const Header: React.FC = (): React.ReactElement => {
   );
   const isOnIndexPage = currentRoute === '/';
   return (
-    <AppBar color="secondary" className="header">
+    <AppBar color="secondary" className="header" position="sticky">
       <Typography variant="subtitle2">
         Present it - Recruitment task for Lama Media
       </Typography>

@@ -4,7 +4,6 @@ import * as requests from '../../services/HttpClient/requests';
 import {
   GetPresentationPayload,
   getPresentationSuccess,
-  RemovePresentationPayload,
   removePresentationSuccess,
   setCurrentSlideSuccess,
   UploadPresentationPayload,
@@ -115,12 +114,10 @@ export function* onIncrementOrDecrementCurrentSlide(action: Action) {
   }
 }
 
-export function* onRemovePresentation({
-  payload,
-}: Action<RemovePresentationPayload>) {
-  const { presentationId } = payload;
+export function* onRemovePresentation() {
+  const currentId = yield select(selectCurrentPresentationId);
   try {
-    yield call(requests.deletePresentation, presentationId);
+    yield call(requests.deletePresentation, currentId);
     yield put(removePresentationSuccess());
     yield put(push('/'));
   } catch (e) {

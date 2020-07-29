@@ -10,6 +10,7 @@ class HttpClient {
   private constructor() {
     this.axiosInstance = Axios.default.create({
       baseURL: API_DOMAIN,
+      withCredentials: true,
     });
   }
 

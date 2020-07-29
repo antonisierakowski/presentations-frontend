@@ -65,14 +65,8 @@ export const setCurrentSlideSuccess = (
 ): Action<SetCurrentSlideSuccess> =>
   createAction(SET_CURRENT_SLIDE_SUCCESS, payload);
 
-export interface RemovePresentationPayload {
-  presentationId: string;
-}
-
-export const removePresentation = (
-  payload: RemovePresentationPayload,
-): Action<RemovePresentationPayload> =>
-  createAction(REMOVE_PRESENTATION, payload);
+export const removePresentation = (): Action =>
+  createAction(REMOVE_PRESENTATION);
 
 export const removePresentationSuccess = (): Action =>
   createAction(REMOVE_PRESENTATION_SUCCESS);

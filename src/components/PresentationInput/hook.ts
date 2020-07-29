@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { UPLOAD_PRESENTATION } from '../../store/presentation/constants';
 import React from 'react';
+import { uploadPresentation } from '../../store/presentation/actions';
 
 interface UseFileUploadHook {
   onUpload: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -18,13 +18,12 @@ export const useFileUpload = (): UseFileUploadHook => {
 
       fileReader.onload = function (fileLoadedEvent: any) {
         const file = fileLoadedEvent.target.result;
-        dispatch({
-          type: UPLOAD_PRESENTATION,
-          payload: {
+        dispatch(
+          uploadPresentation({
             file,
             fileName: selectedFile.name,
-          },
-        });
+          }),
+        );
       };
     },
     [dispatch],

@@ -6,7 +6,7 @@ import {
   selectIsCurrentPresentationLoading,
 } from '../../store/presentation/selectors';
 
-export interface UsePresentationHook {
+interface UsePresentationHook {
   isPresentationLoading: boolean;
   presentationUrl: string;
   currentSlide: number;
@@ -22,7 +22,6 @@ export const usePresentation = (): UsePresentationHook => {
   const currentSlide = useSelector((state: RootState) =>
     selectCurrentSlideNumber(state),
   );
-  // todo add callbacks
 
   return {
     isPresentationLoading,
