@@ -2,4 +2,5 @@
     position: fixed;
     bottom: 30px;
     left: 30px;
+    box-shadow:  2px 2px 11px -4px rgba(0,0,0,0.7);
 }
