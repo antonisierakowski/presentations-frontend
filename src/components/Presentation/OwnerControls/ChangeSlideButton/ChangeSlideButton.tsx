@@ -1,6 +1,6 @@
 import React from 'react';
 import { SkipPrevious, SkipNext } from '@material-ui/icons';
-import { usePresentationControls } from './hook';
+import { usePresentationControls } from '../hook';
 import { Button } from '@material-ui/core';
 
 export enum ChangeSlideDirection {
@@ -12,7 +12,7 @@ interface Props {
   direction: ChangeSlideDirection;
 }
 
-export const ChangeSlide: React.FC<Props> = ({
+export const ChangeSlideButton: React.FC<Props> = ({
   direction,
 }: Props): React.ReactElement => {
   const {

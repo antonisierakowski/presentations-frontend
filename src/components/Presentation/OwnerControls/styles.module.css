@@ -1,0 +1,17 @@
+.controls {
+    position: fixed;
+    width: 400px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    bottom: 15px;
+    right: 50%;
+    opacity: 0.3;
+    transform: translateX(50%);
+    transition: opacity 2s;
+}
+
+.controls:hover {
+    opacity: 1;
+}

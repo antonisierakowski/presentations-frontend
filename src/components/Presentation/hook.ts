@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/types';
 import {
+  selectCurrentPresentationMaxSlides,
   selectCurrentPresentationUrl,
   selectCurrentSlideNumber,
   selectIsCurrentPresentationLoading,
@@ -10,6 +11,7 @@ interface UsePresentationHook {
   isPresentationLoading: boolean;
   presentationUrl: string;
   currentSlide: number;
+  maxSlides: number;
 }
 
 export const usePresentation = (): UsePresentationHook => {
@@ -22,10 +24,14 @@ export const usePresentation = (): UsePresentationHook => {
   const currentSlide = useSelector((state: RootState) =>
     selectCurrentSlideNumber(state),
   );
+  const maxSlides = useSelector((state: RootState) =>
+    selectCurrentPresentationMaxSlides(state),
+  );
 
   return {
     isPresentationLoading,
     presentationUrl,
     currentSlide,
+    maxSlides,
   };
 };

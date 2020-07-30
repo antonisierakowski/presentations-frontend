@@ -8,7 +8,7 @@ export const PdfPresentation: React.FC = (): React.ReactElement => {
 
   return (
     <Document file={presentationUrl} className={styles.presentationWrapper}>
-      <Page pageNumber={currentSlide} />
+      <Page pageNumber={currentSlide} renderAnnotationLayer={false} />
     </Document>
   );
 };

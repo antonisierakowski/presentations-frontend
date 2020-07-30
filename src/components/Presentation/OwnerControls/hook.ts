@@ -15,7 +15,7 @@ import { isUserCurrentPresentationOwner } from '../../../store/user/selectors';
 interface UsePresentationControlsHook {
   canDecrement: boolean;
   canIncrement: boolean;
-  canRemovePresentation: boolean;
+  isPresentationOwner: boolean;
 
   onDecrementSlide: () => void;
   onIncrementSlide: () => void;
@@ -52,7 +52,7 @@ export const usePresentationControls = (): UsePresentationControlsHook => {
   return {
     canDecrement,
     canIncrement,
-    canRemovePresentation: isPresentationOwner,
+    isPresentationOwner,
 
     onDecrementSlide,
     onIncrementSlide,
