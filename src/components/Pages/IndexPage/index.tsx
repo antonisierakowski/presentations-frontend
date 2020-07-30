@@ -28,7 +28,7 @@ export const IndexPage: React.FC = () => {
           <Typography variant="body2">
             To start, upload a .pdf or .pptx file. Once your file is uploaded,
             you can share the generated link with your viewers. Only you will be
-            able to change currently viewed slide.
+            able to change currently viewed slide or end the presentation.
           </Typography>
         </div>
         <PresentationInput />
