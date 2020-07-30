@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/types';
 import {
   selectCurrentPresentationMaxSlides,
@@ -6,6 +6,9 @@ import {
   selectCurrentSlideNumber,
   selectIsCurrentPresentationLoading,
 } from '../../store/presentation/selectors';
+import { useEffect } from 'react';
+import { getPresentation } from '../../store/presentation/actions';
+import { selectPresentationIdFromPath } from '../../store/app/selectors';
 
 interface UsePresentationHook {
   isPresentationLoading: boolean;
@@ -27,6 +30,14 @@ export const usePresentation = (): UsePresentationHook => {
   const maxSlides = useSelector((state: RootState) =>
     selectCurrentPresentationMaxSlides(state),
   );
+  const currentIdFromPath = useSelector((state: RootState) =>
+    selectPresentationIdFromPath(state),
+  );
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getPresentation({ presentationId: currentIdFromPath }));
+  }, [currentIdFromPath, dispatch]);
 
   return {
     isPresentationLoading,

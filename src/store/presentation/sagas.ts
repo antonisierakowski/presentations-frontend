@@ -60,6 +60,11 @@ export function* onGetPresentation({
   payload,
 }: Action<GetPresentationPayload>) {
   const { presentationId } = payload;
+  const currentId = yield select(selectCurrentPresentationId);
+  if (currentId === presentationId) {
+    return;
+  }
+
   try {
     const { response } = yield call(requests.getPresentation, presentationId);
     const presentation = mapPresentationDbRowToDomainEntity(

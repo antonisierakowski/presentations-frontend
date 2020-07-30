@@ -16,7 +16,6 @@ export function* onGetFeedConnection() {
   const socketChannel = yield call(createSocketChannel, socket);
 
   while (true) {
-    // todo error handling
     const payload = yield take(socketChannel);
     const presentation = mapPresentationDbRowToDomainEntity(payload);
     yield put(setCurrentSlideSuccess({ presentation }));

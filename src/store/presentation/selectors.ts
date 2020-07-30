@@ -33,12 +33,7 @@ export const selectIsCurrentPresentationLoading = (
 export const canDecrementSlide = createSelector(
   selectCurrentSlideNumber,
   isUserCurrentPresentationOwner,
-  (current: number, isOwner: boolean): boolean => {
-    console.log(current);
-    console.log(isOwner);
-    console.log(current > 1 && isOwner);
-    return current > 1 && isOwner;
-  },
+  (current: number, isOwner: boolean): boolean => current > 1 && isOwner,
 );
 
 export const canIncrementSlide = createSelector(
