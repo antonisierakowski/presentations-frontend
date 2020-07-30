@@ -9,7 +9,11 @@ export const RemovePresentation: React.FC = (): React.ReactElement => {
   } = usePresentationControls();
 
   if (canRemovePresentation) {
-    return <Button onClick={onRemovePresentation}>End presentation</Button>;
+    return (
+      <Button variant="contained" onClick={onRemovePresentation}>
+        End presentation
+      </Button>
+    );
   }
 
   return null;

@@ -6,18 +6,19 @@ import {
   ChangeSlideDirection,
 } from '../../Presentation/OwnerControls/ChangeSlide';
 import { RemovePresentation } from '../../Presentation/OwnerControls/RemovePresentation';
+import { Paper } from '@material-ui/core';
 
 export const PresentationPage: React.FC = (): React.ReactElement => {
   return (
     <div className={styles.presentationPage}>
       <div className={styles.presentationSection}>
-        <ChangeSlide direction={ChangeSlideDirection.PREV} />
         <PdfPresentation />
-        <ChangeSlide direction={ChangeSlideDirection.NEXT} />
       </div>
-      <div className={styles.footer}>
+      <Paper className={styles.controls} elevation={3}>
+        <ChangeSlide direction={ChangeSlideDirection.PREV} />
         <RemovePresentation />
-      </div>
+        <ChangeSlide direction={ChangeSlideDirection.NEXT} />
+      </Paper>
     </div>
   );
 };
