@@ -14,7 +14,9 @@ export const useFileUpload = (): UseFileUploadHook => {
       const selectedFile = event.currentTarget.files[0];
 
       const fileReader = new FileReader();
-      fileReader.readAsArrayBuffer(selectedFile);
+      if (selectedFile) {
+        fileReader.readAsArrayBuffer(selectedFile);
+      }
 
       fileReader.onload = function (fileLoadedEvent: any) {
         const file = fileLoadedEvent.target.result;
