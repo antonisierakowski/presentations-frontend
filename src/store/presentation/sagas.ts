@@ -21,6 +21,7 @@ import { DECREMENT_CURRENT_SLIDE, INCREMENT_CURRENT_SLIDE } from './constants';
 import { setIsUserPresentationOwner } from '../user/actions';
 import { push } from 'connected-react-router';
 import { getFeedConnection } from '../feed/actions';
+import { selectCurrentPath } from '../app/selectors';
 
 export function* presentationSaga() {
   yield takeLatest(constants.UPLOAD_PRESENTATION, onUploadPresentation);
@@ -61,7 +62,8 @@ export function* onGetPresentation({
 }: Action<GetPresentationPayload>) {
   const { presentationId } = payload;
   const currentId = yield select(selectCurrentPresentationId);
-  if (currentId === presentationId) {
+  const currentPath = yield select(selectCurrentPath);
+  if (currentId === presentationId || currentPath === '/') {
     return;
   }
 
