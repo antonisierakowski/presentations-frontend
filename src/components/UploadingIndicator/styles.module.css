@@ -1,0 +1,10 @@
+.uploading {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.spinner {
+    margin-right: 10px;
+}
