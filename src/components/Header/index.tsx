@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppBar, Typography } from '@material-ui/core';
-import './styles.css';
+import styles from './styles.module.css';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/types';
 import { selectCurrentPath } from '../../store/app/selectors';
@@ -12,7 +12,7 @@ export const Header: React.FC = (): React.ReactElement => {
   );
   const isOnIndexPage = currentRoute === '/';
   return (
-    <AppBar color="secondary" className="header" position="sticky">
+    <AppBar color="secondary" className={styles.header} position="sticky">
       <Typography variant="subtitle2">
         Present it - Recruitment task for Lama Media
       </Typography>

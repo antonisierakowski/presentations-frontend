@@ -1,7 +1,7 @@
 import { Error, Done, Info, Close } from '@material-ui/icons';
 import React from 'react';
 import { Card, Typography } from '@material-ui/core';
-import './styles.css';
+import styles from './styles.module.css';
 import { NotificationType } from '../../../store/notifications/model';
 import { useNotification } from './hook';
 
@@ -13,16 +13,12 @@ export const Notification: React.FC<Props> = ({ id }) => {
   const { notification, onClose } = useNotification(id);
 
   return (
-    <Card className="notification" elevation={3} data-testid={id}>
-      <div className="notificationBody">
+    <Card className={styles.notification} elevation={3} data-testid={id}>
+      <div className={styles.notificationBody}>
         {getIconType(notification.notificationType)}
         <Typography variant="subtitle2">{notification.textContent}</Typography>
       </div>
-      <Close
-        className="closeIcon"
-        onClick={onClose}
-        data-testid={`closeIcon_${id}`}
-      />
+      <Close className={styles.closeIcon} onClick={onClose} />
     </Card>
   );
 };
@@ -30,13 +26,13 @@ export const Notification: React.FC<Props> = ({ id }) => {
 const getIconType = (notificationType: NotificationType) => {
   switch (notificationType) {
     case NotificationType.SUCCESS: {
-      return <Done data-testid="successIcon" />;
+      return <Done />;
     }
     case NotificationType.FAILURE: {
-      return <Error data-testid="failureIcon" />;
+      return <Error />;
     }
     default: {
-      return <Info data-testid="fallbackIcon" />;
+      return <Info />;
     }
   }
 };

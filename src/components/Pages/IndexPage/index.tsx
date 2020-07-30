@@ -1,6 +1,6 @@
 import React from 'react';
 import { PresentationInput } from '../../PresentationInput';
-import './styles.css';
+import styles from './styles.module.css';
 import { useSelector } from 'react-redux';
 import {
   selectIsFileUploading,
@@ -19,11 +19,11 @@ export const IndexPage: React.FC = () => {
   );
 
   return (
-    <div className="presentationInputPage">
+    <div className={styles.presentationInputPage}>
       <PresentationInput />
       {isUploading && (
-        <div className="uploading">
-          <CircularProgress className="spinner" size={20} />
+        <div className={styles.uploading}>
+          <CircularProgress className={styles.spinner} size={20} />
           <Typography variant="subtitle2">
             Uploading {uploadingFileName}...
           </Typography>

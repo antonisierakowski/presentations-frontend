@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+import styles from './styles.module.css';
 import { PdfPresentation } from '../../Presentation/PdfPresentation';
 import {
   ChangeSlide,
@@ -9,13 +9,13 @@ import { RemovePresentation } from '../../Presentation/OwnerControls/RemovePrese
 
 export const PresentationPage: React.FC = (): React.ReactElement => {
   return (
-    <div className="presentationPage">
-      <div className="presentationSection">
+    <div className={styles.presentationPage}>
+      <div className={styles.presentationSection}>
         <ChangeSlide direction={ChangeSlideDirection.PREV} />
         <PdfPresentation />
         <ChangeSlide direction={ChangeSlideDirection.NEXT} />
       </div>
-      <div className="footer">
+      <div className={styles.footer}>
         <RemovePresentation />
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+import styles from './styles.module.css';
 import { useNotifications } from './hook';
 import { Notification } from '../Notification';
 import { Notification as NotificationInterface } from '../../../store/notifications/model';
@@ -7,7 +7,7 @@ import { Notification as NotificationInterface } from '../../../store/notificati
 export const NotificationContainer: React.FC = () => {
   const notifications = useNotifications();
   return (
-    <div className="notificationContainer">
+    <div className={styles.notificationContainer}>
       {notifications.map(notificationMapper)}
     </div>
   );
