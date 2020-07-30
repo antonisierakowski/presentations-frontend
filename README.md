@@ -8,6 +8,7 @@ This repo hosts frontend for Lama Media recruitment task called present-it. [For
 
 ## Available Scripts
 
+Run `cp .env.dist .env` to copy default environment variables.  
 In the project directory, you can run:
 
 ### `yarn start`
