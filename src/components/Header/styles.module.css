@@ -3,4 +3,25 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+}
+
+.headerTitleSection {
+    width: 33%;
+}
+
+.headerCopyButtonSection {
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerStartNewSection {
+    width: 33%;
+    text-align: right;
+}
+
+.headerCopyButton {
+    height: 22px;
 }
