@@ -9,7 +9,7 @@ export const IndexPage: React.FC = () => (
     <Paper className={styles.mainWrapper} elevation={5}>
       <div className={styles.heading}>
         <Typography variant="subtitle2">
-          Present it. Recruitment task for Lama Media.
+          Conduct your presentation live - remotely
         </Typography>
         <Typography variant="body2">
           To start, upload a .pdf or .pptx file. Once your file is uploaded, you

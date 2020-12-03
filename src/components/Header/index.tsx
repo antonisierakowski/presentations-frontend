@@ -10,9 +10,7 @@ export const Header: React.FC = (): React.ReactElement => {
   return (
     <AppBar color="secondary" className={styles.header}>
       <div className={styles.headerTitleSection}>
-        <Typography variant="subtitle2">
-          Present it - Recruitment task for Lama Media
-        </Typography>
+        <Typography variant="subtitle2">Remote Presentations</Typography>
       </div>
       {isOnIndexPage ? null : (
         <>
