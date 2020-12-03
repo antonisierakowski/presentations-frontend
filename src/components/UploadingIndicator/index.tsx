@@ -6,7 +6,7 @@ import {
   selectUploadingFileName,
 } from '../../store/app/selectors';
 import styles from './styles.module.css';
-import { CircularProgress, Paper, Typography } from '@material-ui/core';
+import { CircularProgress, Typography } from '@material-ui/core';
 
 export const UploadingIndicator: React.FC = () => {
   const isUploading = useSelector((state: RootState) =>

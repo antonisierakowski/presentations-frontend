@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Document, Page } from 'react-pdf/dist/entry.webpack';
 import { usePresentation } from '../hook';
 import styles from './styles.module.css';
